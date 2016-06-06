@@ -13,13 +13,15 @@ class SendinblueDelivery
 
     data = {
       "to" => { message.to.first => message.to.first },
-      "cc" => { message.cc.first => message.cc.first },
       "from" => message.from,
-      "cc" => { message.bcc.first => message.bcc.first },
       "subject" => message.subject,
       "text" => plain_part,
       "html" => html_part
     }
+    
+    # "cc" => { message.cc.first => message.cc.first },
+    # "bcc" => { message.bcc.first => message.bcc.first },
+
 
     m = Sendinblue::Mailin.new(@settings[:url],@settings[:key],@settings[:timeout])   #Optional parameter: Timeout in Secs
     m.send_email(data)
