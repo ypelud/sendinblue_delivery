@@ -23,12 +23,19 @@ $ gem install sendinblue_delivery
 Add this to your appropriate config/environments/$RAILS_ENV.rb:
 
 ```ruby
-config.action_mailer.add_delivery_method :sendinbluemail, SendinblueDelivery
-config.action_mailer.sendinbluemail_settings = {
+ActionMailer::Base.add_delivery_method :sendinbluemail, SendinblueDelivery
+
+ActionMailer::Base.sendinbluemail_settings = {
   url: 'https://api.sendinblue.com/v2.0',
   key: '<your key>',
   timeout: 5
 }
 
-config.action_mailer.delivery_method = :sendinbluemail
+ActionMailer::Base.delivery_method = :sendinbluemail
+```
+
+# run tests
+
+```shell
+$ SENDINBLUE_KEY=<my secret key> SENDINBLUE_MAIL=<email> rake test
 ```
