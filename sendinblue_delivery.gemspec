@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'sendinblue_delivery'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.date        = '2016-06-06'
   s.summary     = "SendinBlue delivery"
   s.description = "Add a delivery method for SendinBlue to rails"
